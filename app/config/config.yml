@@ -78,8 +78,8 @@ fos_user:
         confirmation:
             enabled: true
     from_email:
-        address:        noreply@nubbemoda.com
-        sender_name:    Tanna Moda
+        address:        info@fantasybis.es
+        sender_name:    FantasyBis
 
 vich_uploader:
     db_driver: orm
@@ -95,5 +95,5 @@ payum:
     gateways:
         stripe_js:
             factory: stripe_js
-            publishable_key: 'pk_test_mDZ2GSmSw735BE7Tf2o8Zmhi'
-            secret_key:      'sk_test_SOivw3WirjcgbC6KuckjWJKw'
+            publishable_key: 'pk_test_jEwnSvqQdUDbIIIIyL0E2X1w'
+            secret_key:      'sk_test_aDIjKHXsxlwQjhtUHT7pHmoW'
