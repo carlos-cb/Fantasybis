@@ -2,28 +2,28 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
-        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
+        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;总览  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;报告</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; 分析</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
-        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
-        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
-        <li class="active"><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
-        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
+        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;用户管理</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;产品分类</a></li>
+        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;产品管理</a></li>
+        <li class="active"><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;新品选择</a></li>
+        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;订单管理</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <h1 class="sub-header">Selección Nuevos Productos</h1>
+    <h1 class="sub-header">新品选择</h1>
     <br>
     <form class="form-inline" action="{{ path('add_new') }}" method="post">
         <div class="form-group">
-            <label for="codigo">Código de Producto</label>
+            <label for="codigo">产品编码</label>
             <input type="text" class="form-control" id="codigo" name="codigo" placeholder="código" required="required">
         </div>
-        <button type="submit" class="btn btn-default" id="addnew">Añadir</button>
+        <button type="submit" class="btn btn-default" id="addnew">添加</button>
     </form>
     {% for flashMessage in app.session.flashbag.get('notice') %}
 
@@ -44,13 +44,13 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre de Producto ES</th>
-            <th>Nombre de Producto EN</th>
-            <th>Precio</th>
-            <th>Código</th>
-            <th>Foto</th>
-            <th>Categoría</th>
-            <th>Operaciones</th>
+            <th>产品西语名</th>
+            <th>产品英语名</th>
+            <th>价格</th>
+            <th>编码</th>
+            <th>图片</th>
+            <th>所属分类</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -65,7 +65,7 @@
                 <td>{{ product.category.categoryNameEs }}</td>
                 <td>
                     <br>
-                    <a href="{{ path('delete_new', { 'id': product.id }) }}" class="button button-tiny button-highlight">Quitar</a>
+                    <a href="{{ path('delete_new', { 'id': product.id }) }}" class="button button-tiny button-highlight">移除新品</a>
                 </td>
             </tr>
         {% endfor %}

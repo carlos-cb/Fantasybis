@@ -2,25 +2,25 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
-        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
+        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;总览  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;报告</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; 分析</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
-        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
-        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
-        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
-        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
+        <li class="active"><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;用户管理</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;产品分类</a></li>
+        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;产品管理</a></li>
+        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;新品选择</a></li>
+        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;订单管理</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <h1 class="sub-header">Gestión de Usuarios</h1>
+    <h1 class="sub-header">用户管理</h1>
     <br>
     <ul>
         <li>
-            <a href="{{ path('user_new') }}" class="button button-rounded button-inverse">Crear Nuevo</a>
+            <a href="{{ path('user_new') }}" class="button button-rounded button-inverse">创建新用户</a>
         </li>
     </ul>
     <br>
@@ -28,13 +28,13 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Activado</th>
-            <th>Último acceso</th>
-            <th>Pedidos</th>
-            <th>Consumo Total</th>
-            <th>Regla de usuario</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>是否激活</th>
+            <th>最近登录</th>
+            <th>用户订单</th>
+            <th>总消费</th>
+            <th>用户规则</th>
         </tr>
         </thead>
         <tbody>
@@ -45,20 +45,20 @@
                 <td>{{ user.email }}</td>
                 <td>
                     {% if user.enabled %}
-                        Sí <br>
-                        <a class="button button-tiny button-highlight" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea desactivar esta cuenta?')">Desactivar</a>
+                        是 <br>
+                        <a class="button button-tiny button-highlight" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea desactivar esta cuenta?')">关闭</a>
                     {% else %}
-                        No <br>
-                        <a class="button button-tiny button-primary" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">Activar</a>
+                        否 <br>
+                        <a class="button button-tiny button-primary" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">激活</a>
                     {% endif %}
                 </td>
                 <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td><a class="button button-tiny button-primary" href="{{ path('orderinfo_indexUser', { 'user': user.id }) }}">Ver</a></td>
+                <td><a class="button button-tiny button-primary" href="{{ path('orderinfo_indexUser', { 'user': user.id }) }}">查看</a></td>
                 <td>{{ user.OrderInfoSum|number_format(2, '.', ',') }} €</td>
                 <td>
                     <ul class="list">
                         {%for role in user.roles %}
-                            <li>{% if role == 'ROLE_SUPER_ADMIN' %}Super Administrator{% else %}Usuario Normal{% endif %}</li>
+                            <li>{% if role == 'ROLE_SUPER_ADMIN' %}超级管理员{% else %}普通用户{% endif %}</li>
                         {%endfor%}
                     </ul>
                 </td>

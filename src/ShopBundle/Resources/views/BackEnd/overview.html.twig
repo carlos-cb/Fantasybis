@@ -2,47 +2,47 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
-        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
+        <li class="active"><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;总览  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;报告</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; 分析</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
-        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
-        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
-        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
-        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
+        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;用户管理</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;产品分类</a></li>
+        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;产品管理</a></li>
+        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;新品选择</a></li>
+        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;订单管理</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <h1 class="page-header">Dashboard</h1>
+    <h1 class="page-header">操作台</h1>
     <br>
     <div class="row">
         <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="panel user">
-                <a href="{{ path('user_index') }}"><span>{{ numUser }} </span>Usuarios</a>
+                <a href="{{ path('user_index') }}"><span>{{ numUser }} </span>总用户数</a>
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="panel comment">
-                <a href=""><span>10 </span>Vistas Hoy</a>
+                <a href=""><span>10 </span>今日访问量</a>
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="panel page">
-                <a href="{{ path('orderinfo_index') }}"><span>{{ numOrder }} </span>Pedidos</a>
+                <a href="{{ path('orderinfo_index') }}"><span>{{ numOrder }} </span>总订单数</a>
             </div>
         </div>
         <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="panel post">
-                <a href="{{ path('product_index') }}"><span>{{ numProduct }} </span>Productos</a>
+                <a href="{{ path('product_index') }}"><span>{{ numProduct }} </span>总产品数</a>
             </div>
         </div>
     </div>
 
     <br>
-    <h1 class="sub-header">Tabla de Informaciones de Pedidos</h1>
+    <h1 class="sub-header">一周订单走势图</h1>
     <div class="row">
         <div class="col-md-4 col-lg-4">
             <canvas id="myChart" width="400" height="400"></canvas>
@@ -57,11 +57,11 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Nuevos Pedidos</th>
-                        <th>Usuario</th>
-                        <th>Importe total</th>
-                        <th>Ciudad</th>
-                        <th>Tiempo de generación</th>
+                        <th>新订单编号</th>
+                        <th>用户</th>
+                        <th>订单总额</th>
+                        <th>城市</th>
+                        <th>订单生成时间</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -80,17 +80,17 @@
         </div>
     </div>
     <br>
-    <h2 class="sub-header">Tabla de Informaciones de Usuarios</h2>
+    <h2 class="sub-header">注册用户信息表</h2>
     <div class="row">
         <div class="col-md-6 col-lg-6">
             <div class="table-responsive" style="position: relative; top: 25px;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Nuevo Registrado</th>
-                        <th>Nombre</th>
-                        <th>Correo Electrónico</th>
-                        <th>Último Acceso</th>
+                        <th>新用户ID</th>
+                        <th>用户名</th>
+                        <th>邮箱</th>
+                        <th>最近登录时间</th>
                     </tr>
                     </thead>
                     <tbody>

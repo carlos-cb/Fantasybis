@@ -2,48 +2,48 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
-        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
+        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;总览  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;报告</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; 分析</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
-        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
-        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
-        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
-        <li class="active"><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
+        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;用户管理</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;产品分类</a></li>
+        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;产品管理</a></li>
+        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;新品选择</a></li>
+        <li class="active"><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;订单管理</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
     {% if user is defined  %}
-        <h1 class="sub-header">Pedidos de Usuario: {{ user.username }}</h1>
+        <h1 class="sub-header">订单所属用户: {{ user.username }}</h1>
     {% else %}
-        <h1 class="sub-header">Gestión de Pedidos</h1>
+        <h1 class="sub-header">订单管理</h1>
     {% endif %}
     <br>
     <div class="btn-group" id="fliter">
-        <button type="button" class="btn btn-default" id="todo">Todo</button>
-        <button type="button" class="btn btn-default" id="preparando">Preparando</button>
-        <button type="button" class="btn btn-default" id="entregando">Entregando</button>
-        <button type="button" class="btn btn-default" id="terminado">Terminado</button>
-        <button type="button" class="btn btn-default" id="cancelado">Cancelado</button>
-        <button type="button" class="btn btn-default" id="fallado">Pagando</button>
+        <button type="button" class="btn btn-default" id="todo">所有</button>
+        <button type="button" class="btn btn-default" id="preparando">准备中</button>
+        <button type="button" class="btn btn-default" id="entregando">寄送中</button>
+        <button type="button" class="btn btn-default" id="terminado">已完成</button>
+        <button type="button" class="btn btn-default" id="cancelado">已取消</button>
+        <button type="button" class="btn btn-default" id="fallado">付款中</button>
     </div>
     <br><br>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
-            <th>Número de pedido</th>
-            <th>Estado del pedido</th>
-            <th>Nombre</th>
-            <th>Importe Total</th>
-            <th>Pago</th>
-            <th>Tiempo de generación</th>
-            <th>Pagado</th>
-            <th>Enviado</th>
-            <th>Completado</th>
-            <th>Operaciones</th>
+            <th>订单编号</th>
+            <th>订单状态</th>
+            <th>姓名</th>
+            <th>订单总额</th>
+            <th>付款方式</th>
+            <th>订单生成时间</th>
+            <th>已付款</th>
+            <th>已寄送</th>
+            <th>已完成</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -102,7 +102,7 @@
                         </span>
                     {% else %}
                         <span class="button-wrap">
-                            <a href="{{ path('orderinfo_success', { 'id': orderInfo.id }) }}" class="button button-circle button-raised button-caution" onclick="return confirm('Ha terminado el pedido?')">
+                            <a href="{{ path('orderinfo_success', { 'id': orderInfo.id }) }}" class="button button-circle button-raised button-caution" onclick="return confirm('确定该订单已结束?')">
                                 <i class="fa fa-close"></i>
                             </a>
                         </span>
@@ -111,11 +111,11 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('orderinfo_show', { 'id': orderInfo.id }) }}" class="button button-tiny button-border button-rounded button-inverse">Detalles de Pedido</a>
+                            <a href="{{ path('orderinfo_show', { 'id': orderInfo.id }) }}" class="button button-tiny button-border button-rounded button-inverse">订单详情</a>
                         </li>
                         <br>
                         <li>
-                            <a href="{{ path('orderinfo_cancelled', { 'id': orderInfo.id }) }}" class="button button-tiny button-border button-rounded button-caution" onclick="return confirm('Cancelar este pedido?')">Cancelar</a>
+                            <a href="{{ path('orderinfo_cancelled', { 'id': orderInfo.id }) }}" class="button button-tiny button-border button-rounded button-caution" onclick="return confirm('确定取消该订单?')">取消订单</a>
                         </li>
                     </ul>
                 </td>
@@ -126,8 +126,8 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Datos de envío：</h4>
-                            <h4 class="modal-title" id="myModalLabel">Transportista y Número de envío</h4>
+                            <h4 class="modal-title" id="myModalLabel">快递信息填写：</h4>
+                            <h4 class="modal-title" id="myModalLabel">快递公司信息 + 快递单编号</h4>
                         </div>
                         <form method="post" action="{{ path('orderinfo_delivered') }}">
                             <div class="modal-body">
@@ -135,8 +135,8 @@
                                 <input type="hidden" name="orderInfoId" value="{{ orderInfo.id }}">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">OK</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">确定寄送</button>
                             </div>
                         </form>
                     </div>

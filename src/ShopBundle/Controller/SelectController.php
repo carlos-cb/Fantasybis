@@ -29,7 +29,7 @@ class SelectController extends Controller
             if($product->getIsNew()){
                 $this->get('session')->getFlashBag()->add(
                     'notice',
-                    'El producto ya está en la lista de novedades'
+                    '该产品已经在新产品列表中。'
                 );
             }else{
                 $product->setIsNew(true);
@@ -38,13 +38,13 @@ class SelectController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add(
                     'success',
-                    'Añadido con éxito'
+                    '添加成功。'
                 );
             }
         }else{
             $this->get('session')->getFlashBag()->add(
                 'notice',
-                'No se puede añadir, por favor, compruebe el código del producto es correcto'
+                '不能完成添加，请确认产品编号是否正确。'
             );
         }
         return $this->redirectToRoute('select_new');
@@ -56,7 +56,7 @@ class SelectController extends Controller
             if(!$product->getIsNew()){
                 $this->get('session')->getFlashBag()->add(
                     'notice',
-                    'Ya ha quitado el producto de la lista'
+                    '已经将该产品从新品列表中移除。'
                 );
             }else{
                 $product->setIsNew(false);
@@ -65,13 +65,13 @@ class SelectController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()->add(
                     'success',
-                    'Quitado con éxito'
+                    '移除成功。'
                 );
             }
         }else{
             $this->get('session')->getFlashBag()->add(
                 'notice',
-                'No se puede quitar, por favor, compruebe el código del producto es correcto'
+                '不能添加，请刷新网页后重试。'
             );
         }
         return $this->redirectToRoute('select_new');

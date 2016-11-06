@@ -2,25 +2,25 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
-        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
+        <li><a href="{{ path('shop_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;总览  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;报告</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; 分析</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
-        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
-        <li class="active"><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
-        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
-        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
+        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;用户管理</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;产品分类</a></li>
+        <li class="active"><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;产品管理</a></li>
+        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;新品选择</a></li>
+        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;订单管理</a></li>
     </ul>
 {% endblock %}
 
 {% block content %}
-    <h1 class="sub-header">Datos Básicos</h1>
+    <h1 class="sub-header">产品基础信息</h1>
     <br>
     <ul>
         <li>
-            <a href="{{ path('product_index') }}" class="button">Volover</a>
+            <a href="{{ path('product_index') }}" class="button">返回列表</a>
         </li>
     </ul>
     <br>
@@ -28,15 +28,14 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Código</th>
-            <th>Nombre de Producto ES</th>
-            <th>Nombre de Producto EN</th>
-            <th>Precio</th>
-            <th>Código</th>
-            <th>Foto</th>
-            <th>Categoría</th>
-            <th>Mostrado</th>
-            <th>Operaciones</th>
+            <th>产品编码</th>
+            <th>西语名</th>
+            <th>英语名</th>
+            <th>单价</th>
+            <th>图片</th>
+            <th>所属分类</th>
+            <th>是否显示</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -46,15 +45,14 @@
             <td>{{ product.productNameEs }}</td>
             <td>{{ product.productNameEn }}</td>
             <td>{{ product.price }}</td>
-            <td>{{ product.code }}</td>
             <td><a href="{{ asset('uploads/fotos/' ~ product.foto) }}"><img src="{{ asset('uploads/fotos/' ~ product.foto) }}" height="120px" width="100px"></a></td>
             <td>{{ product.category.categoryNameEs }}</td>
-            <td>{% if product.isShow %}Sí{% else %}No{% endif %}</td>
+            <td>{% if product.isShow %}是{% else %}否{% endif %}</td>
             <td>
                 <ul>
                     <br>
                     <li>
-                        <a href="{{ path('product_edit', { 'id': product.id }) }}" class="button button-tiny button-primary">Modificar</a>
+                        <a href="{{ path('product_edit', { 'id': product.id }) }}" class="button button-tiny button-primary">修改</a>
                     </li>
                 </ul>
             </td>
@@ -63,16 +61,16 @@
     </table>
 
     <br>
-    <h1 class="sub-header">Lista de Colores</h1>
+    <h1 class="sub-header">颜色列表</h1>
     <br>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Nombre de Color ES</th>
-            <th>Nombre de Color EN</th>
-            <th>Foto de Color Principal</th>
-            <th>Operaciones</th>
+            <th>颜色西语名</th>
+            <th>颜色英语名</th>
+            <th>颜色主图</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -86,11 +84,11 @@
                     <ul>
                         <br>
                         <li>
-                            <a href="{{ path('color_edit', { 'id': color.id, 'product': product.id }) }}" class="button button-tiny button-primary">Modificar</a>
+                            <a href="{{ path('color_edit', { 'id': color.id, 'product': product.id }) }}" class="button button-tiny button-primary">修改</a>
                         </li>
                         <br>
                         <li>
-                            <a href="{{ path('color_remove', { 'id': color.id }) }}" class="button button-tiny button-highlight" onclick="return confirm('Ojo, va a borrar el color y también las fotodetalles de este color. ¿Desea borrar?')">Borrar</a>
+                            <a href="{{ path('color_remove', { 'id': color.id }) }}" class="button button-tiny button-highlight" onclick="return confirm('注意！删除颜色讲删除其下所有的细节图. ¿确定删除?')">删除</a>
                         </li>
                     </ul>
                 </td>
@@ -100,23 +98,23 @@
     </table>
     <ul>
         <li>
-            <a href="{{ path('color_new', { 'product': product.id }) }}" class="button button-inverse">Crear Color Nuevo</a>
+            <a href="{{ path('color_new', { 'product': product.id }) }}" class="button button-inverse">创建新颜色</a>
         </li>
     </ul>
 
     <br><br>
     <div id="fotodetalles">
-        <h1 class="sub-header">Lista de Fotodetalles</h1>
+        <h1 class="sub-header">细节图列表</h1>
         <br>
         <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Color</th>
-                <th>Descripción ES</th>
-                <th>Descripción EN</th>
-                <th>Foto Detalle</th>
-                <th>Operaciones</th>
+                <th>所属颜色</th>
+                <th>西语描述</th>
+                <th>英语描述</th>
+                <th>细节图</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -131,11 +129,11 @@
                         <ul>
                             <br>
                             <li>
-                                <a href="{{ path('fotodetalle_edit', { 'id': fotodetalle.id, 'product': product.id }) }}" class="button button-tiny button-primary">Modificar</a>
+                                <a href="{{ path('fotodetalle_edit', { 'id': fotodetalle.id, 'product': product.id }) }}" class="button button-tiny button-primary">修改</a>
                             </li>
                             <br>
                             <li>
-                                <a href="{{ path('fotodetalle_remove', { 'id': fotodetalle.id }) }}" class="button button-tiny button-highlight" onclick="return confirm('¿Desea borrar?')">Borrar</a>
+                                <a href="{{ path('fotodetalle_remove', { 'id': fotodetalle.id }) }}" class="button button-tiny button-highlight" onclick="return confirm('¿确定删除该细节图?')">删除</a>
                             </li>
                         </ul>
                     </td>
@@ -146,20 +144,20 @@
 
         <ul>
             <li>
-                <a href="{{ path('fotodetalle_new', { 'id': product.id }) }}" class="button button-inverse">Crear FotoDetalle Nuevo</a>
+                <a href="{{ path('fotodetalle_new', { 'id': product.id }) }}" class="button button-inverse">创建新细节图</a>
             </li>
         </ul>
     </div>
 
     <br><br>
     <div id="tallas">
-        <h1 class="sub-header">Lista de Tallas</h1>
+        <h1 class="sub-header">尺码表</h1>
         <br>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Tallas</th>
+                    <th>尺码</th>
                     <th>Única</th>
                     <th>XS</th>
                     <th>S</th>
@@ -170,7 +168,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">Mostrado</th>
+                    <th scope="row">显示</th>
                     {% set foo1 = 0 %}
                     {% set foo2 = 0 %}
                     {% set foo3 = 0 %}
