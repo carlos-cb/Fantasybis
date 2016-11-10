@@ -17,12 +17,12 @@ class ColorType extends AbstractType
     {
         $builder
             ->add('colorFoto', FileType::class, array(
-                'label' => 'Foto de Color Principal',
+                'label' => '颜色主照片',
                 'data_class' => null,
                 'required' => false,
             ))
-            ->add('colorNameEs', null, array('label' => 'Nombre de Color ES'))
-            ->add('colorNameEn', null, array('label' => 'Nombre de Color EN'))
+            ->add('colorNameEs', null, array('label' => '颜色西语名'))
+            ->add('colorNameEn', null, array('label' => '颜色英语名'))
         ;
     }
     

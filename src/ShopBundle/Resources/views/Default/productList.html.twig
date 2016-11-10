@@ -37,7 +37,7 @@
                             <br>
                         {% endif %}
                         <a class="" href="{{ path('shop_productDetail', { 'product': product.id, 'colorId': 1 }) }}">{{ product.productNameEs }}</a>
-                        <div class="price _product-price"><span>{{ product.price }} EUR</span></div>
+                        <div class="price _product-price"><span>{{ product.price|number_format(2, '.', ',') }} EUR</span></div>
                     </div>
                 </div>
             {% endfor %}

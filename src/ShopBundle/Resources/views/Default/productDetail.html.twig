@@ -40,7 +40,7 @@
                     <div class="product-price product-detail-price">
                         <div class="price-column product-detail-price-column">
                             <!-- // BUGFIX GR-3357  PDP - Fix mixed currency signs -->
-                            <span id="markedDown_full_Price" class="price">€ {{ product.price }}</span>
+                            <span id="markedDown_full_Price" class="price">€ {{ product.price|number_format(2, '.', ',') }}</span>
                         </div>
                     </div>
                     <div class="product-info-wrapper">
@@ -92,7 +92,7 @@
                             </div>
                             <br><br><br>
                         </div>
-                        <p>* La cantidad mínima de comprar un producto en tannamoda.com es 2.</p>
+                        <p>* La cantidad mínima de comprar un producto en fantasybis.es es 2.</p>
                         <br>
                         <button class="shopping-bag-cta add-to-shopping-bag various" type="submit"
                                 {% if userNow %}

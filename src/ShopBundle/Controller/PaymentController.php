@@ -57,8 +57,8 @@ class PaymentController extends Controller
         if ($paymentStatus === true)
         {
             $message = \Swift_Message::newInstance()
-                ->setSubject('Nuevo Pedido En tannamoda.com')
-                ->setFrom(array('info@nubbemoda.com' => 'Tanna Moda'))
+                ->setSubject('Nuevo Pedido En fantasybis.es')
+                ->setFrom(array('info@fantasybis.es' => 'Fantasy Bis'))
                 ->setTo($user->getEmail())
                 ->setContentType('text/html')
                 ->setBody(

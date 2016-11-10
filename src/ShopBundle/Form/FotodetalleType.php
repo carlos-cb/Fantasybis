@@ -20,7 +20,7 @@ class FotodetalleType extends AbstractType
 
         $builder
             ->add('color', null, array(
-                'label' => 'Color',
+                'label' => '所属颜色',
                 'choices' => $this->traitChoices,
                 'class' => 'ShopBundle:Color',
                 'property' => 'colorNameEs',
@@ -30,8 +30,8 @@ class FotodetalleType extends AbstractType
                 'data_class' => null,
                 'required' => false,
             ))
-            ->add('descriptionEs', null, array('label' => 'Descripción ES'))
-            ->add('descriptionEn', null, array('label' => 'Descripción EN'))
+            ->add('descriptionEs', null, array('label' => '描述西语'))
+            ->add('descriptionEn', null, array('label' => '描述英语'))
         ;
     }
     

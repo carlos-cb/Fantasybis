@@ -16,10 +16,10 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('productNameEs', null, array('label' => 'Nombre de Producto ES'))
-            ->add('productNameEn', null, array('label' => 'Nombre de Producto EN'))
+            ->add('productNameEs', null, array('label' => '产品西语名'))
+            ->add('productNameEn', null, array('label' => '产品英语名'))
             ->add('category', null, array(
-                'label' => 'Categoría',
+                'label' => '所属分类',
                 'class' => 'ShopBundle:Category',
                 'property' => 'categoryNameEs',
             ))
@@ -27,9 +27,9 @@ class ProductType extends AbstractType
                 'data_class' => null,
                 'required' => false,
             ))
-            ->add('price', null, array('label' => 'Precio'))
-            ->add('code', null, array('label' => 'Código'))
-            ->add('description', null, array('label' => 'Descripción'))
+            ->add('price', null, array('label' => '单价'))
+            ->add('code', null, array('label' => '编号'))
+            ->add('description', null, array('label' => '备注'))
         ;
     }
     

@@ -15,11 +15,11 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categoryNameEs', null, array('label' => 'Nombre de Categoría ES'))
-            ->add('categoryNameEn', null, array('label' => 'Nombre de Categoría EN'))
+            ->add('categoryNameEs', null, array('label' => '分类西语名'))
+            ->add('categoryNameEn', null, array('label' => '分类英语名'))
             ->add('description', null, array(
                 'required' => false,
-                'label' => 'Descripción'
+                'label' => '描述'
             ))
         ;
     }
