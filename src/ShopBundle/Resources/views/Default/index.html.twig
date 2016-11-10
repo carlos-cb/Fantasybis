@@ -13,7 +13,7 @@
 
         <div class="mainimg">
             <img src="{{ asset('bundles/shop/img/main.jpg') }}">
-            <div class="words">
+            <div class="words" style="display: none">
                 <h1>fantasybis.es</h1>
                 <h1>última semana</h1>
                 <div class="button-wrapper">
@@ -21,22 +21,49 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br>
-        <div class="row showcase">
-            <div class="col-md-6">
-                <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show1.jpg') }}"></a>
+        <br><br><hr class="featurette-divider"><br>
+        <section class="home-block grid2">
+            <h4 class="hs1">Best picks</h4>
+            <h1 class="ha1">The finest edit</h1>
+            <br>
+            <div class="best-picks-wrapper row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="">
+                        <img src="//img.mytheresa.com/media/static/raw/cms/l/CW45_homepage/CW45_finest_edit_1_2x_20161107144554.jpg">
+                        <h4 class="hs1">VALENTINO</h4>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="">
+                        <img src="//img.mytheresa.com/media/static/raw/cms/l/CW45_homepage/CW45_finest_edit_2_2x_20161107144553.jpg">
+                        <h4 class="hs1">STELLA MCCARTNEY</h4>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="">
+                        <img src="//img.mytheresa.com/media/static/raw/cms/l/CW45_homepage/CW45_finest_edit_3_2x_20161107144553.jpg">
+                        <h4 class="hs1">SAINT LAURENT</h4>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="">
+                        <img src="//img.mytheresa.com/media/static/raw/cms/l/CW45_homepage/CW45_finest_edit_4_2x_20161107144554.jpg">
+                        <h4 class="hs1">GUCCI</h4>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-6">
+        </section>
+        <br><br><hr class="featurette-divider"><br><br>
+        <div class="row showcase">
+            <div class="col-xs-12 col-md-6">
                 <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show2.jpg') }}"></a>
                 <button id="anniu" class="button button-inverse">Comprar Ahora <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
                 <hr class="featurette-divider">
                 <h1 class="ha1">Mejor Vendido En Tienda</h1>
-                <div class="col-md-6">
-                    <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show3.jpg') }}"></a>
-                </div>
-                <div class="col-md-6">
-                    <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show4.jpg') }}"></a>
-                </div>
+                <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show3.jpg') }}"></a>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <a href="{{ path('shop_productList_new') }}"><img src="{{ asset('bundles/shop/img/show1.jpg') }}"></a>
             </div>
         </div>
         <br><br>

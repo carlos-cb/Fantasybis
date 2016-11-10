@@ -2,7 +2,7 @@ a:hover{
     text-decoration: none;
 }
 .nav{
-    height: 240px;
+    min-height: 140px;
 }
 .rightlogo{
     position: relative;
@@ -32,11 +32,12 @@ a:hover{
     background: url(../img/dotted-line.png) repeat-x 0 bottom;
 }
 .toplogo{
+    float: right;
     padding-top: 10px;
     padding-bottom: 50px;
 }
 .toplogo a{
-    color: #4d4d4d;
+    color: #FFF;
     margin-right: 30px;
     font-size: 13px;
     font-weight: 600;
@@ -63,8 +64,34 @@ a:hover{
     float:left;
 }
 .menu a{
-    color: #4d4d4d;
+    color: #272727;
 }
 .menu a:hover{
     color: #000;
+}
+
+.topHeader {
+    padding: 3px 0 0;
+    width: 100%;
+    float: none;
+    background-color: #000;
+    height: 45px;
+    position: relative;
+    z-index: 100;
+}
+.topHeaderCont {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    color: #fff;
+}
+.topHeader .userInfoHeader {
+    float: right;
+    margin: 0;
+    padding: 0;
+    height: 32px;
+}
+.topHeader .userInfoHeader>.storeLocator {
+    display: block;
+    border: 0;
 }

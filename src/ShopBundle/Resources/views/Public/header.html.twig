@@ -3,21 +3,24 @@
 {% endblock %}
 
 <div class="container">
-    <div class="nav">
-        <div class="toplogo">
-            <a>Bienvenido a fantasybis.es </a>
-            {% if userNow is defined and userNow %}
-                <a href="" class="">Hola, {{ userNow.username }}</a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}" class="">Iniciar sesión</a>
-            {% endif %}
-            <a href="{% if userNow is defined and userNow %}{{ path('shop_pedido') }}{% else %}{{ path('fos_user_security_login') }}{% endif %}" class="">Mis pedidos  <i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+    <div class="topHeader">
+        <div class="topHeaderCont clearfix">
+            <div class="toplogo">
+                <a>Bienvenido a fantasybis.es </a>
+                {% if userNow is defined and userNow %}
+                    <a href="" class=""><i class="fa fa-user" aria-hidden="true"></i> &nbsp;Hola, {{ userNow.username }}</a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class=""><i class="fa fa-user" aria-hidden="true"></i> &nbsp;Iniciar Sesión</a>
+                {% endif %}
+                <a href="{% if userNow is defined and userNow %}{{ path('shop_pedido') }}{% else %}{{ path('fos_user_security_login') }}{% endif %}"><i class="fa fa-book" aria-hidden="true"></i> &nbsp;Mis Pedidos</a>
+                <a href="{{ path('shop_cart') }}" class=""><i class="fa fa-shopping-bag"></i> &nbsp;Mi Cesta</a>
+            </div>
         </div>
+    </div>
+    <br><br><br>
+    <div class="nav">
         <div class="centerlogo">
             <a href="/"><img id="centerlogo" src="{{ asset('bundles/shop/img/logo.png') }}"></a>
-        </div>
-        <div class="rightlogo">
-            <a href="{{ path('shop_cart') }}" class=""><i class="fa fa-shopping-bag"></i> &nbsp;&nbsp;MI CESTA</a>
         </div>
         <div class="menu">
             <ul class="category">
