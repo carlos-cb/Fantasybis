@@ -21,28 +21,32 @@
     <ul>
         <li>
             <a href="{{ path('user_new') }}" class="button button-rounded button-inverse">创建新用户</a>
+            <a href="{{ path('user_code') }}" class="button button-rounded button-inverse">用户注册码</a>
         </li>
     </ul>
     <br>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
-            <th>ID</th>
             <th>用户名</th>
             <th>邮箱</th>
+            <th>联系电话</th>
+            <th>公司名称</th>
+            <th>公司地址</th>
             <th>是否激活</th>
             <th>最近登录</th>
             <th>用户订单</th>
             <th>总消费</th>
-            <th>用户规则</th>
         </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.tel }}</td>
+                <td>{{ user.companyName }}</td>
+                <td>{{ user.companyAddress }}</td>
                 <td>
                     {% if user.enabled %}
                         是 <br>
@@ -52,16 +56,9 @@
                         <a class="button button-tiny button-primary" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">激活</a>
                     {% endif %}
                 </td>
-                <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d') }}{% endif %}</td>
                 <td><a class="button button-tiny button-primary" href="{{ path('orderinfo_indexUser', { 'user': user.id }) }}">查看</a></td>
                 <td>{{ user.OrderInfoSum|number_format(2, '.', ',') }} €</td>
-                <td>
-                    <ul class="list">
-                        {%for role in user.roles %}
-                            <li>{% if role == 'ROLE_SUPER_ADMIN' %}超级管理员{% else %}普通用户{% endif %}</li>
-                        {%endfor%}
-                    </ul>
-                </td>
             </tr>
         {% endfor %}
         </tbody>

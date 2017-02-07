@@ -137,4 +137,39 @@ class UserController extends Controller
 
         return $this->redirectToRoute('user_index');
     }
+    
+    public function codeAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $global = $em->getRepository('ShopBundle:Globals')->findOneById(3);
+        $key = $global->getJian();
+
+        return $this->render('user/code.html.twig', array(
+            'key' => $key,
+        ));
+    }
+
+    public function codeEditAction(Request $request)
+    {
+        $newKey = $request->request->get('codigo');
+
+        $em = $this->getDoctrine()->getManager();
+        $global = $em->getRepository('ShopBundle:Globals')->findOneById(3);
+
+        $global->setJian($newKey);
+        $em->persist($global);
+        $em->flush();
+        if($global->getJian() == $newKey){
+            $this->get('session')->getFlashBag()->add(
+                'success',
+                '修改成功'
+            );
+        }else{
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                '修改失败，请重试'
+            );
+        }
+        return $this->redirectToRoute('user_code');
+    }
 }

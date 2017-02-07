@@ -18,6 +18,9 @@ class UserType extends AbstractType
             ->add('username', null, array('label' => '用户名'))
             ->add('email', null, array('label' => '邮箱'))
             ->add('plainPassword', null, array('label' => '密码'))
+            ->add('tel', null, array('label' => '联系电话'))
+            ->add('companyName', null, array('label' => '公司名称'))
+            ->add('companyAddress', null, array('label' => '公司地址'))
         ;
     }
     

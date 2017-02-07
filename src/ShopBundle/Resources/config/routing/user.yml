@@ -26,3 +26,11 @@ user_delete:
 user_enable:
     path:     /{id}/enable
     defaults: { _controller: "ShopBundle:User:enable" }
+
+user_code:
+    path:     /code
+    defaults: { _controller: "ShopBundle:User:code" }
+
+user_codeEdit:
+    path:     /codeEdit
+    defaults: { _controller: "ShopBundle:User:codeEdit" }

@@ -113,4 +113,88 @@ class User extends BaseUser
 
         return $sum;
     }
+    /**
+     * @var string
+     */
+    private $companyName;
+
+    /**
+     * @var string
+     */
+    private $companyAddress;
+
+    /**
+     * @var string
+     */
+    private $tel;
+
+
+    /**
+     * Set companyName
+     *
+     * @param string $companyName
+     * @return User
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    /**
+     * Get companyName
+     *
+     * @return string 
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * Set companyAddress
+     *
+     * @param string $companyAddress
+     * @return User
+     */
+    public function setCompanyAddress($companyAddress)
+    {
+        $this->companyAddress = $companyAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get companyAddress
+     *
+     * @return string 
+     */
+    public function getCompanyAddress()
+    {
+        return $this->companyAddress;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param string $tel
+     * @return User
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return string 
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
 }
