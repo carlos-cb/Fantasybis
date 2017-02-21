@@ -22,3 +22,12 @@ category_delete:
     path:     /{id}/delete
     defaults: { _controller: "ShopBundle:Category:delete" }
     methods:  DELETE
+
+category_turn_up:
+    path:     /{id}/turn_up
+    defaults: { _controller: "ShopBundle:Category:turnUp" }
+
+category_turn_down:
+    path:     /{id}/turn_down
+    defaults: { _controller: "ShopBundle:Category:turnDown" }
+

@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1 class="sub-header">产品分类</h1>
+    <h1 class="sub-header">产品分类(根据前台排序)</h1>
     <br>
     <ul>
         <li>
@@ -24,13 +24,14 @@
         </li>
     </ul>
     <br>
+    <p>*排列权重越高，位置越前</p>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
             <th>编号</th>
             <th>西语名</th>
             <th>英语名</th>
-            <th>描述</th>
+            <th>排列权重</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -40,7 +41,7 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.categoryNameEs }}</td>
                 <td>{{ category.categoryNameEn }}</td>
-                <td>{{ category.description }}</td>
+                <td>{{ category.turn }}</td>
                 <td>
                     <ul>
                         <li>

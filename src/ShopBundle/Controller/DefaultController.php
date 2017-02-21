@@ -16,7 +16,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
         $global = $em->getRepository('ShopBundle:Globals')->findOneById(2);
         $timeNow = new \DateTime('now');
@@ -40,7 +40,7 @@ class DefaultController extends Controller
     public function avisoAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         return $this->render('ShopBundle:Info:aviso.html.twig', array(
@@ -52,7 +52,7 @@ class DefaultController extends Controller
     public function guiaAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         return $this->render('ShopBundle:Info:guia.html.twig', array(
@@ -64,7 +64,7 @@ class DefaultController extends Controller
     public function sobreAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         return $this->render('ShopBundle:Info:sobre.html.twig', array(
@@ -76,7 +76,7 @@ class DefaultController extends Controller
     public function productListAction(Category $category)
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         $query = $em->createQuery("SELECT p FROM ShopBundle:Product p WHERE p.category=$category and p.isShow=1");
@@ -93,7 +93,7 @@ class DefaultController extends Controller
     public function productListNewAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         $category = new Category();
@@ -113,7 +113,7 @@ class DefaultController extends Controller
     public function productDetailAction(Product $product, $colorId)
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         $colors = $product->getColors();
@@ -131,7 +131,7 @@ class DefaultController extends Controller
     public function cartAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
         if(!$userNow)
         {
@@ -229,7 +229,7 @@ class DefaultController extends Controller
     public function guestinfoAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         return $this->render('ShopBundle:Default:guestinfo.html.twig', array(
@@ -242,7 +242,7 @@ class DefaultController extends Controller
     {
         $user = $this->getUser();
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
 
         $repository = $this->getDoctrine()->getRepository('ShopBundle:OrderInfo');
         $orderInfos = $repository->findByUser($user, array('orderDate' => 'DESC'));
@@ -257,7 +257,7 @@ class DefaultController extends Controller
     public function productlistclientAction(OrderInfo $orderInfo)
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository('ShopBundle:Category')->findAll();
+        $categories = $em->getRepository('ShopBundle:Category')->findBy(array(), array('turn' => 'DESC'));
         $userNow = $this->getUser();
 
         $query = $em->createQuery("SELECT p FROM ShopBundle:OrderItem p WHERE p.orderInfo=$orderInfo");

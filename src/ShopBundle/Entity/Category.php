@@ -99,29 +99,6 @@ class Category
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     * @return Category
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Add products
      *
      * @param \ShopBundle\Entity\Product $products
@@ -156,5 +133,33 @@ class Category
 
     public function __toString() {
         return strval($this->id);
+    }
+    /**
+     * @var integer
+     */
+    private $turn;
+
+
+    /**
+     * Set turn
+     *
+     * @param integer $turn
+     * @return Category
+     */
+    public function setTurn($turn)
+    {
+        $this->turn = $turn;
+
+        return $this;
+    }
+
+    /**
+     * Get turn
+     *
+     * @return integer 
+     */
+    public function getTurn()
+    {
+        return $this->turn;
     }
 }

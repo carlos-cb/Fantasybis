@@ -15,10 +15,8 @@ ShopBundle\Entity\Category:
         categoryNameEn:
             type: string
             length: 255
-        description:
-            type: string
-            length: 255
-            nullable: true
+        turn:
+            type: integer
     oneToMany:
         products:
             targetEntity: Product

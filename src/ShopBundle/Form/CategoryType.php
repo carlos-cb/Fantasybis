@@ -17,10 +17,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('categoryNameEs', null, array('label' => '分类西语名'))
             ->add('categoryNameEn', null, array('label' => '分类英语名'))
-            ->add('description', null, array(
-                'required' => false,
-                'label' => '描述'
-            ))
+            ->add('turn', null, array('label' => '排列权重'))
         ;
     }
     
